@@ -16,8 +16,9 @@ Plugin 'altercation/vim-colors-solarized'
 let g:syntastic_cpp_checkers = ['gcc']    " Use gcc as default syntax checker
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_auto_loc_list = 0
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_auto_jump = 1
+let g:syntastic_echo_current_error = 1
 
 " C++11
 "let g:syntastic_cpp_compiler = 'clang++'
@@ -106,8 +107,8 @@ let g:ycm_key_list_previous_completion = ['<C-p>']
 
 
 Plugin 'fatih/vim-go'
-"let g:go_fmt_command="goimports"
-let g:go_fmt_fail_silently = 1
+let g:go_fmt_command="goimports"
+let g:go_fmt_fail_silently = 0
 au Filetype go nnoremap <C-]> :GoDef<CR> 
 
 Bundle 'ervandew/supertab'
