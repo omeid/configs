@@ -109,6 +109,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>']
 Plugin 'fatih/vim-go'
 let g:go_fmt_command="goimports"
 let g:go_fmt_fail_silently = 0
+au FileType go nnoremap <A-r> :GoRename<CR>
 au Filetype go nnoremap <C-]> :GoDef<CR> 
 
 Bundle 'ervandew/supertab'
@@ -138,19 +139,19 @@ Plugin 'cakebaker/scss-syntax.vim'
 " All of your Plugins must be added before the following line
 
 
-let g:bufferline_echo=0
-let g:bufferline_show_bufnr = 1
+let g:bufferline_echo= 1
+let g:bufferline_show_bufnr = 0
 let g:bufferline_modified = '*'
 let g:bufferline_rotate = 1
 let g:bufferline_fixed_index =  -1
  autocmd VimEnter *
       \ let &statusline='%{bufferline#refresh_status()}' . bufferline#get_status_string()
 
+
 Plugin 'bling/vim-bufferline'
 
-
 let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#bufferline#enabled = 1
 
 let g:airline_left_sep=''
@@ -172,6 +173,8 @@ let g:airline#extensions#syntastic#enabled = 1
 Plugin 'bling/vim-airline'
 let g:airline_theme='serene'
 
+Plugin 'tpope/vim-surround.git'
+Plugin  'cespare/vim-toml'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -185,7 +188,7 @@ set showmatch "Highlights matching brackets in programming languages
 set autoindent  "If you're indented, new lines will also be indented
 set smartindent  "Automatically indents lines after opening a bracket in programming languages
 set backspace=2  "This makes the backspace key function like it does in other programs.
-set tabstop=2 shiftwidth=2
+set tabstop=4 shiftwidth=4
 set number  "Enables line numbering
 set smarttab  "Improves tabbing
 set shiftwidth=2  "Assists code formatting
@@ -207,7 +210,7 @@ nmap <silent> <Up> gk
 "easy buffer switch
 nnoremap <C-Left> :bprevious<CR> 
 "easy buffer switchuUnnoremap <C-Right> :bnext<CR> 
-nnoremap <C-Right> :bNext<CR> 
+nnoremap <C-Right> :bnext<CR> 
 "nnoremap <silent> <S-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 "easy tab organization :D
 
@@ -254,4 +257,4 @@ set hidden
   set statusline+=0x%-8B                       " character value  
   set statusline+=%-14(%l,%c%V%)               " line, character  
   set statusline+=%<%P                         " file position  
-""}
+"}
